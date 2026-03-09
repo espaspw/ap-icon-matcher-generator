@@ -90,7 +90,7 @@ document.getElementById('exportForm').addEventListener('submit', function(e) {
 
     const tsContent = generateTSContent()
     const shortName = document.getElementById('shortName').value || "game";
-    downloadFile(`${shortName}.ts`, tsContent);
+    downloadFile(`${convertToCamelCase(shortName)}.ts`, tsContent);
 });
 
 function downloadFile(filename, text) {
