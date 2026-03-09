@@ -52,6 +52,12 @@ function updateItemList(gameName) {
     });
 }
 
+function convertToCamelCase(snakeCaseText) {
+  return snakeCaseText.replace(/(_\w)/g, (match) => {
+    return match[1].toUpperCase();
+  })
+}
+
 function generateTSContent() {
     const selectedGame = document.getElementById('gameSelect').value;
     const shortName = document.getElementById('shortName').value || "game";
@@ -59,7 +65,7 @@ function generateTSContent() {
 
     return `import { IconMatcher } from '../../types/icon-types.js'
 
-export const ${shortName}Icons: IconMatcher[] = [
+export const ${convertToCamelCase(shortName)}Icons: IconMatcher[] = [
 ${Object.keys(itemData).map(itemName => `  { pattern: ['${itemName}'], emoji: '${shortName}_' },`).join('\n')}
 ]
 `
