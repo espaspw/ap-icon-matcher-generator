@@ -37,6 +37,14 @@
   list-style: none;
 }
 
+a {
+  color: #407dc4;
+}
+
+a:visited {
+  color: #c44089;
+}
+
 h1,
 h3,
 h4 {
