@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>AP Icon Template Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main id="container">
+    <h1>AP Icon Template Generator</h1>
+
+    <div id="stage1">
+      <p>Upload the datapackage file (<code>datapackage_export.json</code>):</p>
+      <input type="file" id="jsonFile" accept=".json" style="padding-bottom: 20px;">
+      <hr>
+      <div>
+        <h3>How to get this file?</h3>
+        <ul>
+          <li>Open the Archipelago Launcher.</li>
+          <li>Run "Export Datapackage". This will run over all worlds you have installed.</li>
+          <li>The new file should be under your AP root folder.</li>
+        </ul>
+        <div class="img-container">
+          <img src="tutorial1.png" width="600px" />
+        </div>
+      </div>
+    </div>
+
+    <div id="stage2" style="display: none;">
+      <div id="stage2Form">
+        <p id="successMsg" style="color: #2ecc71; font-weight: bold;"></p>
+        <h3>Configure Export</h3>
+        <form id="exportForm">
+          <label>Select Game:</label>
+          <select id="gameSelect"></select>
+
+          <label>Short Name:</label>
+          <div>This should match the name of the <code>.apworld</code> file.</div>
+          <input type="text" id="shortName" placeholder="e.g. tww" required>
+          <button type="submit">📜 Export TypeScript File</button>
+        </form>
+
+        <div id="itemListSection">
+          <h4>Items in this Game:</h4>
+          <ul id="itemList">
+          </ul>
+        </div>
+      </div>
+      <div id="stage2Preview">
+        <label>📜 Script Preview:</label>
+        <div>This generated file should go under <code>\src\data\matchers</code></div>
+        <pre id="codePreview"
+          style="background: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 0.85em; border: 2px solid #8b0000;"></pre>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</main>
+
+</html>
